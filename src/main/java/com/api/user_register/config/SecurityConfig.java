@@ -18,9 +18,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 // Configuramos las reglas de las URLs
                 .authorizeHttpRequests(auth -> auth
-                        // IMPORTANTE: Aquí debes poner la ruta exacta que definiste en tu Controller
+                        // Permitimos acceder a la ruta register sin necesidad de que pase por autenticacion
                         .requestMatchers("/api/users/register").permitAll()
-                        // Cualquier otra ruta requerirá autenticación
+                        // Cualquier otra ruta requerira autenticacion
                         .anyRequest().authenticated()
                 );
 
